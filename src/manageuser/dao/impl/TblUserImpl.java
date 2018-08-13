@@ -24,7 +24,7 @@ public class TblUserImpl extends BaseImpl implements TblUserDAO {
 	 * @see manageuser.dao.TblUserDAO#getAdmin(java.lang.String)
 	 */
 	@Override
-	public TblUser getAdmin(String login_name) throws SQLException, ClassNotFoundException {
+	public  TblUser getAdmin(String login_name) throws SQLException, ClassNotFoundException {
 	
 		try {
 			String query = "SELECT * FROM Manager_LuongThai.User";

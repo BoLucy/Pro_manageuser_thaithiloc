@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import manageuser.dao.BaseDAO;
+import manageuser.entities.TblUser;
 
 /**
  * @author LA-AM
@@ -86,6 +87,17 @@ public class BaseImpl implements BaseDAO {
 //				System.out.println("Close successfully");
 				}
 			
+	}
+
+	/**
+	 * @param login_name
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public TblUser getAdmin(String login_name) throws SQLException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

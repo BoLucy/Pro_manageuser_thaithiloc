@@ -71,7 +71,7 @@ public class TblUserLogicImpl implements TblUserLogic {
 			TblUser user = userDAO.getAdmin(login_name);
 			String salt = user.getSalt();
 			String passwordSHA1 = encodeSHA1(salt, password);
-			if(login_name.equals(user.getLogin_name()) && passwordSHA1.equals(user.getPassword())) {
+			if(passwordSHA1.equals(user.getPassword())) {
 				return true;
 			} else {
 			return false;
