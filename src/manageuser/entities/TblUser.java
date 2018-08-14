@@ -162,5 +162,9 @@ public class TblUser {
 		this.rule = rule;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return ("user id: " +user_id);
+	}
 }

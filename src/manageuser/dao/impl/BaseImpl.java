@@ -13,6 +13,7 @@ import java.sql.Statement;
 
 import manageuser.dao.BaseDAO;
 import manageuser.entities.TblUser;
+import manageuser.utils.Constants;
 
 /**
  * @author LA-AM
@@ -35,6 +36,7 @@ public class BaseImpl implements BaseDAO {
 
 			//thiet lap ket noi
 			Class.forName("com.mysql.jdbc.Driver");
+//		Class.forName(Constants().forName);
 			con = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			System.out.println("connect successfully!");
 		
@@ -87,17 +89,6 @@ public class BaseImpl implements BaseDAO {
 //				System.out.println("Close successfully");
 				}
 			
-	}
-
-	/**
-	 * @param login_name
-	 * @return
-	 * @throws SQLException
-	 * @throws ClassNotFoundException
-	 */
-	public TblUser getAdmin(String login_name) throws SQLException, ClassNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

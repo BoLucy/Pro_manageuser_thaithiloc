@@ -22,12 +22,5 @@ public interface BaseDAO {
 	void closePrepareStatement(PreparedStatement ps) throws SQLException;
 	void closeResultSet(ResultSet rs) throws SQLException;
 	void closeStatement(Statement st) throws SQLException;
-	/**
-	 * @param login_name
-	 * @return
-	 * @throws SQLException
-	 * @throws ClassNotFoundException
-	 */
-	TblUser getAdmin(String login_name) throws SQLException, ClassNotFoundException;
 	
 }

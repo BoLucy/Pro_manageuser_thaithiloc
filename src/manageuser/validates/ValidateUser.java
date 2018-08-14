@@ -33,4 +33,12 @@ public class ValidateUser {
 		}
 		return listError;
 	}
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		
+		ArrayList<String> l = ValidateUser.validateLogin("admin", "admin123");
+		System.out.println(l.size());
+		for (String str : l) {
+			System.out.println(str);
+		}
+	}
 }

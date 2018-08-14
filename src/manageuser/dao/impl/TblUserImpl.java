@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import manageuser.dao.TblUserDAO;
 import manageuser.entities.TblUser;
 
+
+
 /**
  * @author LA-AM
  *
@@ -27,33 +29,44 @@ public class TblUserImpl extends BaseImpl implements TblUserDAO {
 	public  TblUser getAdmin(String login_name) throws SQLException, ClassNotFoundException {
 	
 		try {
-			String query = "SELECT * FROM Manager_LuongThai.User";
+			String query = "SELECT * FROM manageuser_bientuanh.tbl_user";
 			con = getConnection();
 			PreparedStatement ps = con.prepareStatement(query);
 			ResultSet rs = ps.executeQuery();
-			int cols = 1;
 			TblUser user = new TblUser();
-			user.setUser_id(rs.getInt(cols++));
-			user.setGroup_id(rs.getInt(cols++));
-			user.setLogin_name(rs.getString(cols++));
-			user.setPassword(rs.getString(cols++));
-			user.setFull_name(rs.getString(cols++));
-			user.setFull_name_kana(rs.getString(cols++));
-			user.setEmail(rs.getString(cols++));
-			user.setTel(rs.getString(cols++));
-			user.setBirthday(rs.getString(cols++));
-			user.setSalt(rs.getString(cols++));
-			user.setRule(rs.getInt(cols++));
+			while (rs.next()) {
+				
+				user.setUser_id(rs.getInt("user_id"));
+				user.setGroup_id(rs.getInt("group_id"));
+				user.setLogin_name(rs.getString("login_name"));
+				user.setPassword(rs.getString("password"));
+				user.setFull_name(rs.getString("full_name"));
+				user.setFull_name_kana(rs.getString("full_name_kana"));
+				user.setEmail(rs.getString("email"));
+				user.setTel(rs.getString("tel"));
+				user.setBirthday(rs.getString("birthday"));
+				user.setSalt(rs.getString("salt"));
+				user.setRule(rs.getInt("rule"));
+			
+			}
 			return user;
 		} catch (SQLException sqle) {
 			// System.out.println(MessageErrorProperties.getProperty("ListUser_getList_SQLE"));
+			System.out.println("sql err");
 			throw sqle;
 		} catch (ClassNotFoundException cnfe) {
 			// System.out.println(MessageErrorProperties.getProperty("ListUser_getList_CNFE"));
+			System.out.println("null");
 			throw cnfe;
 		} finally {
 			closeConnection(con);
 		}
+		
+	}
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		TblUserImpl us = new TblUserImpl();
+		TblUser user = us.getAdmin("admin");
+		System.out.println(user.toString());
 	}
 
 }

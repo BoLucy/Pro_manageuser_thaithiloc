@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>ユーザ管理</title>
 </head>
 <body align="center" >
-<form action="ADM002.html" method="post">
+<form action="/LoginController" method="post">
 <center>
 	<table class="tbl_input" cellpadding="4" cellspacing="0" width="400px">
 		<tr>
@@ -16,10 +17,11 @@
 		<tr>
 			<th colspan="2" align="left">アカウント名およびパスワードを入力してください</th>
 		</tr>
-		
+		<c:forEach var="error" items = "${listError}">
 		<tr>
-			<td class="errMsg" colspan="2">&nbsp;</td>
+			<td class="errMsg" colspan="2"><c:out value="${error}"></c:out></td>
 		</tr>	
+		</c:forEach>
 		<tr align="left">
 			<td class="lbl_left">アカウント名:</td>
 			<td align="left">
