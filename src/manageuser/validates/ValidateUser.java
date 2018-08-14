@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.Cookie;
 
 import manageuser.logics.impl.TblUserLogicImpl;
+import manageuser.utils.MessageErrorProperties;
 
 /**
  * @author LA-AM
@@ -22,15 +23,24 @@ public class ValidateUser {
 		ArrayList<String> listError = new ArrayList<String>();
 		TblUserLogicImpl existUser = new TblUserLogicImpl();
 		if (login_name == null && "".equals(login_name)) {
-			String error = "Error001";
+//			String error = "Error001";
+			String error = MessageErrorProperties.getValueOfMEProperty("ERR01");
 			listError.add(error);
 		} else if (password == "null" && "".equals(password)) {
-			String error = "Error001";
+			String error = MessageErrorProperties.getValueOfMEProperty("ERR01");
 			listError.add(error);
 		} else if(!existUser.existLogin(login_name, password)){
-			String error = "Error002";
+			String error = MessageErrorProperties.getValueOfMEProperty("ERR016");
 			listError.add(error);
 		}
 		return listError;
+	}
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		
+		ArrayList<String> l = ValidateUser.validateLogin("admin", "admin123");
+		System.out.println(l.size());
+		for (String str : l) {
+			System.out.println(str);
+		}
 	}
 }

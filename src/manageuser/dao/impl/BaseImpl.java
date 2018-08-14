@@ -13,6 +13,7 @@ import java.sql.Statement;
 
 import manageuser.dao.BaseDAO;
 import manageuser.entities.TblUser;
+import manageuser.utils.DatabaseProperties;
 
 /**
  * @author LA-AM
@@ -23,9 +24,13 @@ public class BaseImpl implements BaseDAO {
 	static PreparedStatement ps;
 	static Connection con;
 	static ResultSet rs;
-	private static String DB_URL = "jdbc:mysql://127.0.0.1:3306/";
-	private static String USER_NAME = "root";
-	private static String PASSWORD = "root";
+//	private static String DB_URL = "jdbc:mysql://127.0.0.1:3306/";
+//	private static String USER_NAME = "root";
+//	private static String PASSWORD = "root";
+	private static String DB_URL = DatabaseProperties.getValueOfProperty("DB_URL");
+	private static String USER_NAME = DatabaseProperties.getValueOfProperty("USER_NAME");
+	private static String PASSWORD = DatabaseProperties.getValueOfProperty("PASSWORD");
+	
 
 	/* (non-Javadoc)
 	 * @see manageuser.dao.BaseDAO#getConnection()
@@ -35,6 +40,7 @@ public class BaseImpl implements BaseDAO {
 
 			//thiet lap ket noi
 			Class.forName("com.mysql.jdbc.Driver");
+//		Class.forName(Constants().forName);
 			con = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			System.out.println("connect successfully!");
 		
@@ -87,17 +93,6 @@ public class BaseImpl implements BaseDAO {
 //				System.out.println("Close successfully");
 				}
 			
-	}
-
-	/**
-	 * @param login_name
-	 * @return
-	 * @throws SQLException
-	 * @throws ClassNotFoundException
-	 */
-	public TblUser getAdmin(String login_name) throws SQLException, ClassNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

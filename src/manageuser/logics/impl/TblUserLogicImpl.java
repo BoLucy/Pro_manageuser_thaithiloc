@@ -77,5 +77,12 @@ public class TblUserLogicImpl implements TblUserLogic {
 			return false;
 			}
 		}
-		
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		TblUserLogicImpl us = new TblUserLogicImpl();
+		String s = getSalt();
+		System.out.println(s);
+		System.out.println(encodeSHA1(s, "admin123"));
+		boolean check = us.existLogin("admin", "admin123");
+		System.out.println(check);
+	}	
 }
