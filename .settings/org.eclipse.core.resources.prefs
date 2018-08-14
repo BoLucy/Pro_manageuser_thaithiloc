@@ -1,6 +1,10 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//WebContent/css=UTF-8
 encoding//WebContent/images=UTF-8
+=======
+encoding//WebContent/WEB-INF/lib=UTF-8
+>>>>>>> 3d78b550021ba647f62c22f7ca53ffcc0f0831d0
 encoding//WebContent/jsp/ADM001.jsp=UTF-8
 encoding//WebContent/jsp/ADM002.jsp=UTF-8
 encoding/<project>=UTF-8

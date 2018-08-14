@@ -79,6 +79,7 @@ public class TblUserLogicImpl implements TblUserLogic {
 		}
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		TblUserLogicImpl us = new TblUserLogicImpl();
+<<<<<<< HEAD
 		String s = getSalt();
 		System.out.println(s);
 		System.out.println(encodeSHA1(s, "admin123"));
@@ -86,3 +87,12 @@ public class TblUserLogicImpl implements TblUserLogic {
 		System.out.println(check);
 	}	
 }
+=======
+//		String s = getSalt();
+//		System.out.println(s);
+//		System.out.println(encodeSHA1(s, "admin123"));
+		boolean check = us.existLogin("admin", "admin123");
+		System.out.println(check);
+	}	
+}
+>>>>>>> 3d78b550021ba647f62c22f7ca53ffcc0f0831d0

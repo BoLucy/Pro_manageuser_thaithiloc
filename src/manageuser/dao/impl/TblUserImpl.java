@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import manageuser.dao.TblUserDAO;
 import manageuser.entities.TblUser;
 
+
+
 /**
  * @author LA-AM
  *
@@ -27,7 +29,11 @@ public class TblUserImpl extends BaseImpl implements TblUserDAO {
 	public  TblUser getAdmin(String login_name) throws SQLException, ClassNotFoundException {
 	
 		try {
+<<<<<<< HEAD
 			String query = "SELECT * FROM manageuser_thaithiloc.tbl_user";
+=======
+			String query = "SELECT * FROM manageuser_bientuanh.tbl_user";
+>>>>>>> 3d78b550021ba647f62c22f7ca53ffcc0f0831d0
 			con = getConnection();
 			PreparedStatement ps = con.prepareStatement(query);
 			ResultSet rs = ps.executeQuery();

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ import manageuser.validates.ValidateUser;
  * @author LA-AM
  *
  */
-
+@WebServlet(urlPatterns="/LoginController")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	/* (non-Javadoc)
@@ -40,14 +41,20 @@ public class LoginController extends HttpServlet {
 		try {
 			ArrayList<String> listError = ValidateUser.validateLogin(login_name, password);
 			if(listError.size() == 0) {
+<<<<<<< HEAD
 				System.out.println("Login success");
 				RequestDispatcher rd = req.getRequestDispatcher("/jsp/ADM002.jsp");
+=======
+				out.println("Login success");
+				RequestDispatcher rd = req.getRequestDispatcher("/JSP/ADM002.jsp");
+>>>>>>> 3d78b550021ba647f62c22f7ca53ffcc0f0831d0
 				rd.forward(req, resp);	
 				HttpSession session = req.getSession(true); // reuse existing
 				// session if exist
 				// or create one
 				session.setAttribute("user", login_name);
 				session.setMaxInactiveInterval(3000); // 5 mins
+<<<<<<< HEAD
 				resp.sendRedirect("jsp/ADM001.jsp");
 			} else {
 				for (String string : listError) {
@@ -58,6 +65,14 @@ public class LoginController extends HttpServlet {
 				RequestDispatcher rd = req.getRequestDispatcher("/jsp/ADM001.jsp");
 				rd.forward(req, resp);
 				System.out.println("Login fail");
+=======
+				resp.sendRedirect("ADM001.jsp");
+			} else {
+				req.setAttribute("listError", listError);
+				RequestDispatcher rd = req.getRequestDispatcher("/JSP/ADM001.jsp");
+				rd.forward(req, resp);
+				out.print("Sorry username or password error");
+>>>>>>> 3d78b550021ba647f62c22f7ca53ffcc0f0831d0
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

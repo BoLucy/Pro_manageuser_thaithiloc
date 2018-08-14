@@ -13,7 +13,11 @@ import java.sql.Statement;
 
 import manageuser.dao.BaseDAO;
 import manageuser.entities.TblUser;
+<<<<<<< HEAD
 import manageuser.utils.DatabaseProperties;
+=======
+import manageuser.utils.Constants;
+>>>>>>> 3d78b550021ba647f62c22f7ca53ffcc0f0831d0
 
 /**
  * @author LA-AM
